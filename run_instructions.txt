@@ -1,0 +1,110 @@
+# 🚀 Run Instructions — COVID-19 X-Ray Image Classifier
+
+This short guide explains how to set up and run the classifier either **in Google Colab** or **locally** on your machine.
+
+---
+
+## 🧠 Prerequisites
+- Python 3.8+
+- TensorFlow GPU runtime (recommended for speed)
+- Access to the dataset: `COVID-XRay-Split/` folder with `train`, `val`, and `test` subfolders.
+
+---
+
+## 🧰 1️⃣ Install Dependencies
+If you cloned the repo, simply run:
+
+```bash
+pip install -r requirements.txt
+```
+
+For Google Colab users:
+```python
+!pip install -q -r requirements.txt
+```
+
+---
+
+## 💾 2️⃣ Setup Dataset
+
+### Option A — Running in Colab
+If your dataset is in Google Drive:
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Copy dataset locally for faster access
+!cp -r "/content/drive/My Drive/AI-ML-Learn/COVID-XRay-Split" /content/
+```
+Then set:
+```python
+DATA_DIR = "/content/COVID-XRay-Split"
+```
+
+### Option B — Running Locally
+If dataset exists in your project folder:
+```
+project_root/
+│
+├── COVID-XRay-Split/
+│   ├── train/
+│   ├── val/
+│   └── test/
+└── notebook.ipynb
+```
+
+Then set:
+```python
+DATA_DIR = "COVID-XRay-Split"
+```
+
+---
+
+## ⚙️ 3️⃣ Run the Notebook (Steps 1–7)
+
+1. Open `COVID_XRay_Classifier.ipynb` in Colab or VS Code.  
+2. Execute cells sequentially:  
+   - **Step 1:** Configuration, GPU check  
+   - **Step 2:** Load dataset (auto-cache)  
+   - **Step 3:** Build EfficientNetB0 model  
+   - **Step 4:** Phase 1 training  
+   - **Step 5:** Fine-tuning  
+   - **Step 6:** Evaluate on test set  
+   - **Step 7:** Plot training curves  
+3. Model artifacts will be saved automatically in `/outputs/`.
+
+---
+
+## 📂 4️⃣ Outputs
+After training completes, check the `outputs/` folder for:
+
+| File | Description |
+|------|--------------|
+| `best_model.keras` | Best-performing model |
+| `last_epoch.keras` | Last saved epoch |
+| `covid_classifier_final.keras` | Final model after fine-tuning |
+| `train_history.pkl` | Training metrics |
+| `training_curves.png` | Accuracy/loss plots |
+
+---
+
+## ⚡ 5️⃣ Resuming Later
+To evaluate or continue training later:
+```python
+from tensorflow import keras
+best_model = keras.models.load_model("outputs/best_model.keras")
+```
+
+---
+
+## 🧩 6️⃣ Optional Enhancements
+- Enable Grad-CAM visualization (Step 8, future work)  
+- Try higher EfficientNet variants (B1–B3)  
+- Deploy via TensorFlow Serving or FastAPI  
+- Add Streamlit UI for interactive demo  
+
+---
+
+### 👨‍💻 Author
+**VPS** — Data & Solution Architect / ML Engineer  
+GitHub: *(add your repo link here)*

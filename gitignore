@@ -1,0 +1,65 @@
+# =========================================================
+# 🧱 .gitignore — TensorFlow / Colab Project
+# =========================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# --- Jupyter / Colab ---
+.ipynb_checkpoints/
+*.ipynb_convert/
+*.ipynb_backup/
+*.ipynb.tmp
+
+# --- Virtual Environments ---
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+
+# --- Model Files & Checkpoints ---
+*.h5
+*.hdf5
+*.keras
+*.ckpt*
+checkpoint/
+checkpoints/
+*.pb
+*.tflite
+
+# --- Output Artifacts ---
+outputs/
+*.pkl
+*.json
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.zip
+
+# --- Data & Cache ---
+*.tfdata
+*.tfrecord
+*.npz
+*.npy
+.cache/
+logs/
+tensorboard/
+
+# --- IDE / System Files ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Temporary Colab Files ---
+/content/drive/
+/content/sample_data/
+/content/COVID-XRay-Split/
